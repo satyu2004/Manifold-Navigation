@@ -1,0 +1,22 @@
+Execution Log
+==================================================
+Model Name: lstm
+Surface: torus
+Hidden Dimensions: [32]
+Number of Trajectories: 10000
+Setup: k_50
+Dataset: ar1
+Sequence Length: 10
+Learning Rate: 0.01
+Decay Weight: 1.0
+Number of Epochs: 500
+Batch Size: 4000
+Number of Runs: 1
+==================================================
+
+Agg_indices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+Training models with hidden dimension 32
+Run 1/1  (hidden_dim=32)
+Training ran for all 500 epochs. Final val loss: 1.058349
+Total runtime: 1295.44 seconds. Iterations/second: 0.39
+Error evolution gif saved to results/animations/torus/ar1/k_50/lstm/error_evolution_32.gif

@@ -1,13 +1,14 @@
 # ManiNav — Manifold Navigation
 
-A framework for learning to predict trajectories of stochastic processes on Riemannian manifolds using recurrent neural networks.
+A framework for learning to predict trajectories on Riemannian manifolds using recurrent neural networks.
 
 ## Overview
 
 ManiNav trains sequence models (RNN, LSTM, GRU) to navigate on curved surfaces by learning the geometry implicitly from trajectory data. Given an initial position and a sequence of velocity increments, the model predicts positions along the manifold — outperforming a naive flat-space (Euclidean) baseline.
 
-Supported surfaces: **torus**, **sphere**, **plane**, and a **neural (reconstructed) surface**.  
-Supported processes: **Brownian motion**, **AR(1)**.
+Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.
+
+Supported dataset generation processes: **Brownian motion**, **AR(1)**.
 
 ## Project Structure
 

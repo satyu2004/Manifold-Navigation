@@ -4,11 +4,36 @@ A framework for learning to predict trajectories on Riemannian manifolds using r
 
 ## Overview
 
-ManiNav trains sequence models (RNN, LSTM, GRU) to navigate on curved surfaces by learning the geometry implicitly from trajectory data. Given an initial position and a sequence of velocity increments, the model predicts positions along the manifold — outperforming a naive flat-space (Euclidean) baseline.
+<p align="center"><img src="src/graphics/evolution_1408.gif" alt="Evolution animation" width="700"/></p>
 
+<<<<<<< HEAD
 Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.
 
 Supported dataset generation processes: **Brownian motion**, **AR(1)**.
+=======
+ManiNav trains sequence-to-sequence models (RNN, LSTM, GRU) to navigate on curved surfaces by learning the curvature and geometry implicitly from training trajectory data. Given an initial position and a sequence of velocity increments, the model predicts positions along the manifold — outperforming a naive flat-space (Euclidean) baseline.
+
+Below is a visualization of how errors in the estimates for $[x_1, \ldots, x_n]$ averaged over the entire test data evolve over model training.
+
+<p align="center"><img src="src/graphics/error_convergence.gif" alt="Error convergence" width="700"/></p>
+
+## Problem Description
+
+Assume you are navigating a curved manifold $M$. You start at an initial position $x_0$, and a stream of velocities $[v_1, \ldots, v_n]$ measured at times $t=1, \ldots, n$. You need to predict your positions $[x_1, \ldots, x_n]$ at times $t=1, \ldots, n$. (This is known in navigation literature as *dead reckoning*.)
+
+Due to curvature of manifolds, we cannot track position by simple velocity addition (a technique known as [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning)), and need a curvature-aware approach.
+
+
+Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.
+
+
+
+## Other Contributions
+
+We develop a GPU-accelerated framework for generating trajectories on manifolds specified by the user. We use PyTorch as backend for differential geometric computations and TorchDiffEq for integrating geodesic equations on the GPU.
+
+Currently supported dataset generation processes: **Brownian motion**, **AR(1)**.
+>>>>>>> fc80870 (convergence visualization)
 
 ## Project Structure
 

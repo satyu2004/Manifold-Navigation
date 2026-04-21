@@ -6,7 +6,6 @@ A framework for learning to predict trajectories on Riemannian manifolds using r
 
 <p align="center"><img src="src/graphics/evolution_1408.gif" alt="Evolution animation" width="700"/></p>
 
-<<<<<<< HEAD
 Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.
 
 Supported dataset generation processes: **Brownian motion**, **AR(1)**.
@@ -19,9 +18,9 @@ Below is a visualization of how errors in the estimates for $[x_1, \ldots, x_n]$
 
 ## Problem Description
 
-Assume you are navigating a curved manifold $M$. You start at an initial position $x_0$, and a stream of velocities $[v_1, \ldots, v_n]$ measured at times $t=1, \ldots, n$. You need to predict your positions $[x_1, \ldots, x_n]$ at times $t=1, \ldots, n$. (This is known in navigation literature as *dead reckoning*.)
+Assume you are navigating a curved manifold $M$. You start at an initial position $x_0$, and a stream of velocities $[v_1, \ldots, v_n]$ measured at times $t=1, \ldots, n$. You need to predict your positions $[x_1, \ldots, x_n]$ at times $t=1, \ldots, n$. (This is known in navigation literature as [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning).)
 
-Due to curvature of manifolds, we cannot track position by simple velocity addition (a technique known as [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning)), and need a curvature-aware approach.
+Due to curvature of manifolds, we cannot track position by simple velocity addition, and need a curvature-aware approach.
 
 
 Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.

@@ -1,20 +1,17 @@
-# ManiNav — Manifold Navigation
+# ManiNav — Deep Learning for Manifold Navigation
 
-A framework for learning to predict trajectories on Riemannian manifolds using recurrent neural networks.
-
-## Overview
+A deep learning framework for position prediction on nonlinear surfaces. We use a data-driven approach to learn intricate relationships that linear methods fail to capture in curved spaces, resulting in up to 42% lower prediction errors over linear baselines. We also provide a GPU-accelerated synthetic data generation pipeline for addressing data scarcity in real-world navigation environments.
 
 <p align="center"><img src="src/graphics/evolution_1408.gif" alt="Evolution animation" width="700"/></p>
 
-Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) surface** or **custom surfaces specified by an immersion function**.
+## Overview
 
-Supported dataset generation processes: **Brownian motion**, **AR(1)**.
-=======
 ManiNav trains sequence-to-sequence models (RNN, LSTM, GRU) to navigate on curved surfaces by learning the curvature and geometry implicitly from training trajectory data. Given an initial position and a sequence of velocity increments, the model predicts positions along the manifold — outperforming a naive flat-space (Euclidean) baseline.
 
 Below is a visualization of how errors in the estimates for $[x_1, \ldots, x_n]$ averaged over the entire test data evolve over model training.
 
 <p align="center"><img src="src/graphics/error_convergence.gif" alt="Error convergence" width="700"/></p>
+
 
 ## Problem Description
 
@@ -29,10 +26,10 @@ Supported surfaces: **torus**, **sphere**, **plane**, **neural (reconstructed) s
 
 ## Other Contributions
 
-We develop a GPU-accelerated framework for generating trajectories on manifolds specified by the user. We use PyTorch as backend for differential geometric computations and TorchDiffEq for integrating geodesic equations on the GPU.
+We develop a GPU-accelerated pipeline for generating synthetic trajectories on manifolds specified by the user. We use PyTorch as backend for differential geometric computations and TorchDiffEq for integrating geodesic equations on the GPU.
 
 Currently supported dataset generation processes: **Brownian motion**, **AR(1)**.
->>>>>>> fc80870 (convergence visualization)
+
 
 ## Project Structure
 
@@ -112,10 +109,10 @@ python evaluate.py
 
 | Name | Class | Description |
 |------|-------|-------------|
-| `rnn` | `RNN` | Single-layer Elman RNN; initial position encoded into hidden state |
+| `rnn` | `RNN` | Elman RNN; initial position encoded into hidden state |
 | `lstm` | `ConditionalLSTM` | LSTM conditioned on initial position |
 | `gru` | `ConditionalGRU` | GRU conditioned on initial position |
-| `2lrnn` | `RNN_multilayer` | Multi-layer RNN |
+
 
 All models take `(X0, V)` as input — initial chart coordinates and a sequence of velocity increments — and output predicted chart coordinates at each timestep.
 
